@@ -187,7 +187,9 @@ pl <- ggplot() +
     ) +
     guides(col = guide_legend(title = "Legend", reverse = TRUE)) +
     scale_color_manual(values = legend_colors) +
-    theme_bw()
+    theme_bw() +
+    xlab("Time") +
+    ylab("Number of newborns per month")
 ggsave(filename = "figures/overview.png", plot = pl)
 
 legend_colors2 <- c(
@@ -206,6 +208,9 @@ pl2 <- ggplot() +
             as.Date("2026/12/31", format = "%Y/%m/%d")
         ),
         date_labels = "%Y"
+    ) +
+    scale_y_continuous(
+        limits = c(11000, 16500)
     ) +
     geom_ribbon(
         data = full_df[full_df$group == "predictions", ],
@@ -239,6 +244,8 @@ pl2 <- ggplot() +
     ) +
     scale_shape_manual(values = legend_shapes2) +
     labs(shape = "Legend") +
-    theme_bw()
+    theme_bw() +
+    xlab("Time") +
+    ylab("Number of newborns per month")
 
 ggsave(filename = "figures/zoom.png", plot = pl2)
