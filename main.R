@@ -210,7 +210,7 @@ pl2 <- ggplot() +
         date_labels = "%Y"
     ) +
     scale_y_continuous(
-        limits = c(11000, 16000)
+        limits = c(10500, 16500)
     ) +
     geom_ribbon(
         data = full_df[full_df$group == "predictions", ],
